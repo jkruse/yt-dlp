@@ -68,6 +68,8 @@ class ChaturbateIE(InfoExtractor):
                 self.raise_geo_restricted()
             self.report_warning(f'Got status "{status}" from API; falling back to webpage extraction')
             return None
+        
+        m3u8_url = m3u8_url.replace('/live-hls/', '/live-fhls/').replace('playlist.m3u8', 'playlist_sfm4s.m3u8')
 
         return {
             'id': video_id,
